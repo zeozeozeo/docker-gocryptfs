@@ -3,7 +3,7 @@ name: Build and Push Docker Image to GHCR
 on:
   push:
     branches:
-      - main
+      - master
     tags:
       - 'v*.*.*'
   workflow_dispatch:
@@ -49,8 +49,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
 
       - name: Echo pushed image tags
         run: |
